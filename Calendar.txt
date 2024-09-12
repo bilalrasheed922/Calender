@@ -1,0 +1,293 @@
+.model small
+.stack 100h
+.data
+    print1 db  0ah,0dh , 0ah,0dh,' =====CALENDAR 2023====== ',0ah,0dh,
+              db  '| Press "a" For January  |',0ah,0dh,
+              db  '| Press "b" For February |',0ah,0dh,
+              db  '| Press "c" For March    |',0ah,0dh,
+              db  '| Press "d" For April    |',0ah,0dh,
+              db  '| Press "e" For May      |',0ah,0dh,
+              db  '| Press "f" For June     |',0ah,0dh,
+              db  '| Press "g" For July     |',0ah,0dh,
+              db  '| Press "h" For August   |',0ah,0dh,
+              db  '| Press "i" For September|',0ah,0dh,
+              db  '| Press "j" For October  |',0ah,0dh,
+              db  '| Press "k" For November |',0ah,0dh,  
+              db  '| Press "l" For December |',0ah,0dh,
+              db  ' ========================   $' 
+    print2 db 0ah,0dh,0ah,0dh,'Press Key: $' 
+              
+    a db  0ah,0dh ,0ah,0dh ,'       January  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '  1   2   3   4   5   6   7',0ah,0dh,
+              db  '  8   9  10  11  12  13  14 ',0ah,0dh, 
+              db  ' 15  16  17  18  19  20  21 ',0ah,0dh,
+              db  ' 22  23  24  25  26  27  28 ',0ah,0dh, 
+              db  ' 29  30  31              $'   
+    
+    b db  0ah,0dh ,0ah,0dh ,'       February  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '              1   2   3   4',0ah,0dh,
+              db  '  5   6   7   8   9  10  11 ',0ah,0dh, 
+              db  ' 12  13  14  15  16  17  18 ',0ah,0dh,
+              db  ' 19  20  21  22  23  24  25 ',0ah,0dh,
+              db  ' 26  27  28              $'    
+  
+    c db  0ah,0dh ,0ah,0dh ,'       March  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '              1   2   3   4',0ah,0dh,
+              db  '  5   6   7   8   9  10  11 ',0ah,0dh, 
+              db  ' 12  13  14  15  16  17  18 ',0ah,0dh,
+              db  ' 19  20  21  22  23  24  25 ',0ah,0dh,
+              db  ' 26  27  28  29  30  31   $'    
+                
+    d db  0ah,0dh ,0ah,0dh ,'       April  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '                          1 ',0ah,0dh,
+              db  '  2   3   4   5   6   7   8 ',0ah,0dh, 
+              db  '  9  10  11  12  13  14  15 ',0ah,0dh,
+              db  ' 16  17  18  19  20  21  22 ',0ah,0dh,
+              db  ' 23  24  25  26  27  28  29 ',0ah,0dh,
+              db  ' 30                       $'                
+    e db  0ah,0dh ,0ah,0dh ,'       May  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '      1   2   3   4   5   6',0ah,0dh,
+              db  '  7   8   9  10  11  12  13 ',0ah,0dh, 
+              db  ' 14  15  16  17  18  19  20 ',0ah,0dh,
+              db  ' 21  22  23  24  25  26  27 ',0ah,0dh,
+              db  ' 28  29  30  31            $'               
+             
+    f db  0ah,0dh ,0ah,0dh ,'       June  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '                  1   2   3',0ah,0dh,
+              db  '  4   5   6   7   8   9  10 ',0ah,0dh, 
+              db  ' 11  12  13  14  15  16  17 ',0ah,0dh,
+              db  ' 18  19  20  21  22  23  24 ',0ah,0dh,
+              db  ' 25  26  27  28  29  30    $'   
+              
+    g db  0ah,0dh ,0ah,0dh ,'       July  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '                          1 ',0ah,0dh,
+              db  '  2   3   4   5   6   7   8 ',0ah,0dh,
+              db  '  9  10  11  12  13  14  15 ',0ah,0dh,
+              db  ' 16  17  18  19  20  21  22 ',0ah,0dh,
+              db  ' 23  24  25  26  27  28  29 ',0ah,0dh,
+              db  ' 30  31                     $'                       
+
+    h db  0ah,0dh ,0ah,0dh ,'       August  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '          1   2   3   4   5',0ah,0dh,
+              db  '  6   7   8   9  10  11  12 ',0ah,0dh, 
+              db  ' 13  14  15  16  17  18  19 ',0ah,0dh,
+              db  ' 20  21  22  23  24  25  26 ',0ah,0dh,
+              db  ' 27  28  29  30  31            $'    
+ 
+    i db  0ah,0dh ,0ah,0dh ,'       September  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '                      1   2',0ah,0dh,
+              db  '  3   4   5   6   7   8   9 ',0ah,0dh, 
+              db  ' 10  11  12  13  14  15  16 ',0ah,0dh,
+              db  ' 17  18  19  20  21  22  23 ',0ah,0dh,
+              db  ' 24  25  26  27  28  29  30 $'    
+  
+    j db  0ah,0dh ,0ah,0dh ,'       October  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '  1   2   3   4   5   6   7',0ah,0dh,
+              db  '  8   9  10  11  12  13  14 ',0ah,0dh, 
+              db  ' 15  16  17  18  19  20  21 ',0ah,0dh,
+              db  ' 22  23  24  25  26  27  28 ',0ah,0dh,
+              db  ' 29  30  31              $'    
+
+    k db  0ah,0dh ,0ah,0dh ,'       November  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '              1   2   3   4',0ah,0dh,
+              db  '  5   6   7   8   9  10  11 ',0ah,0dh, 
+              db  ' 12  13  14  15  16  17  18 ',0ah,0dh,
+              db  ' 19  20  21  22  23  24  25 ',0ah,0dh,
+              db  ' 26  27  28  29  30      $'    
+ 
+    l db  0ah,0dh ,0ah,0dh ,'       December  2023         ',0ah,0dh,
+              db  'Sun Mon Tue Wed Thu Fri Sat ',0ah,0dh,
+              db  '                      1   2',0ah,0dh,
+              db  '  3   4   5   6   7   8   9 ',0ah,0dh, 
+              db  ' 10  11  12  13  14  15  16 ',0ah,0dh,
+              db  ' 17  18  19  20  21  22  23 ',0ah,0dh,
+              db  ' 24  25  26  27  28  29  30 ',0ah,0dh,
+              db  ' 31                        $' 
+              
+              
+    print3 db 0ah,0dh ,0ah,0dh,'Do you want to continue ? Press Y/N : $'
+    print4 db 0ah,0dh ,0ah,0dh,'Wrong Input ! $'  
+    print5 db 0ah,0dh ,0ah,0dh,'Program Close ! Thank You $'     
+              
+
+.code 
+main proc  
+    
+    mov ax,@data 
+    mov ds,ax     
+    
+    Top:
+    mov dx,offset print1
+    mov ah,9
+    int 21h 
+    
+    mov dx,offset print2
+    mov ah,9
+    int 21h  
+     
+    mov ah,1
+    int 21h
+                                                                              
+    cmp al,'a'
+    je dis1   
+
+    cmp al,'b'
+    je dis2 
+  
+    cmp al,'c'
+    je dis3 
+           
+    cmp al,'d'
+    je dis4 
+
+    cmp al,'e'
+    je dis5 
+        
+    cmp al,'f'
+    je dis6  
+    
+    cmp al,'g'
+    je dis7 
+
+    cmp al,'h'
+    je dis8 
+        
+    cmp al,'i'
+    je dis9 
+           
+    cmp al,'j'
+    je dis10 
+
+    cmp al,'k'
+    je dis11
+
+    cmp al,'l'
+    je dis12 
+    
+    jne wrong        
+            
+    dis1:
+    
+    mov dx, offset a
+    mov ah,9
+    int 21h 
+    jmp again
+    
+    dis2:
+    
+    mov dx, offset b
+    mov ah,9
+    int 21h  
+    jmp again
+    
+    dis3:
+    
+    mov dx, offset c
+    mov ah,9
+    int 21h 
+    jmp again
+    
+    dis4:
+    
+    mov dx, offset d
+    mov ah,9
+    int 21h  
+    jmp again
+    
+    dis5:
+    
+    mov dx, offset e
+    mov ah,9
+    int 21h 
+    jmp again
+    
+    dis6:
+    
+    mov dx, offset f
+    mov ah,9
+    int 21h
+    jmp again           
+
+    dis7:
+    
+    mov dx, offset g
+    mov ah,9
+    int 21h
+    jmp again 
+    
+    dis8:
+    
+    mov dx, offset h
+    mov ah,9
+    int 21h
+    jmp again 
+    
+    dis9:
+    
+    mov dx, offset i
+    mov ah,9
+    int 21h 
+    jmp again
+    
+    dis10:
+    
+    mov dx, offset j
+    mov ah,9
+    int 21h 
+    jmp again
+    
+    dis11:
+    
+    mov dx, offset k
+    mov ah,9
+    int 21h 
+    jmp again
+    
+    dis12:
+    
+    mov dx, offset l
+    mov ah,9
+    int 21h      
+    jmp again
+    
+    again:
+    mov dx, offset print3   
+    mov ah,9
+    int 21h    
+    
+    mov ah,1
+    int 21h
+
+    cmp al,'y' 
+    je Top
+    cmp al,'n'
+    je exit 
+      
+    wrong:
+    mov dx, offset print4   
+    mov ah,9
+    int 21h  
+    
+    jmp Top   
+    
+    exit:  
+    mov dx, offset print5   
+    mov ah,9
+    int 21h  
+    
+    mov ah,4ch
+    int 21h
+    
+    main endp
+   end main
